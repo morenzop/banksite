@@ -1,4 +1,8 @@
 <div class="container">
+    <form [formGroup]="customerform" (ngSubmit)="submitCustomer()" novalidate>
+        <div *ngIf="validMessage != ''">
+            <h3 class="has-info">{{validMessage}}</h3>
+          </div>
   <div class="row">
     <a class="btn btn=primary" routerLink="/admin">Back to Home</a>
   </div>
@@ -47,4 +51,6 @@
       <input type="text" class="form-control">
     </div>
   </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </div>

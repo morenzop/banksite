@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../services/customer.service';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import { observable, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-customer',
@@ -29,13 +30,20 @@ export class CustomerComponent implements OnInit {
   }
 
 
-sumbitCustomer(){
+submitCustomer(){
   if (this.customerform.valid){
     this.validMessage = "Your Customer Form Has Been Submitted. Thank You!";
     this.customerService.createCustomer(this.customerform.value).subscribe(data => {this.customerform.reset();
     return true; 
-  })
-  
+  }),
+  error => {
+    Observable.throw(error);
+
+  }
+
+  } else {
+    this.validMessage = "Please Fill Out The Form Before Submitting!";
   }
 }
 }
+
