@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomerComponent
+    CustomerComponent,
+    AccountComponent
   ],
   imports: [
     ReactiveFormsModule,
